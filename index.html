@@ -10,6 +10,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="leanplum.js">
+  </script>
 <style type="text/css">
     .navbar {
       font-family: Raleway, sans-serif;
@@ -107,11 +109,39 @@
     </ul>
 </div>
 </nav>
+<script>  	
+	// This value should be set to true only if you're developing on your server.
+	var isDevelopmentMode = true;
+
+	// Sample variables. This can be any JSON object.
+	/*var variables = {
+	 items: {
+	   color: 'red',
+	   size: 20,
+	   showBadges: true
+	 },
+	 showAds: true
+	};*/
+
+	// We've inserted your Test API keys here for you :)
+	if (isDevelopmentMode) {
+	 Leanplum.setAppIdForDevelopmentMode("app_QRz301YIiB2FVHZueKJDyJsGWluEBWAlxp8JDJMXzj0", "dev_PixIb6DTB58IAhNmFdtS2gwByvk58cRORVI6YvgB2Os");
+	} else {
+	 Leanplum.setAppIdForProductionMode("YOUR_APP_ID", "YOUR_PRODUCTION_KEY");
+	}
+
+	//Leanplum.setVariables(variables);
+	Leanplum.start(function(success) {
+	 console.log('Success: ' + success);
+	 console.log('Variables', Leanplum.getVariables());
+	});</script>
 <div class="container1" style="text-align: center">
   <h1>Hello World</h1>
   <div class="container col-md-6" style="padding-top: 40px;">
-  <h3>THIS IS A CONTAINER; TESTING THIS THING</h3>
+  <h3>THIS IS TEST SITE TO DEMO LEANPLUM SDK</h3>
 </div>
+</div>
+<div>
 </div>
 </body>
 </html>
