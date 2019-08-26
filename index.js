@@ -37,4 +37,4 @@ const main = async () => {
     //showLocalNotification('Push Title', 'Push Message', swRegistration);
 }
 
-//main();
+main();
