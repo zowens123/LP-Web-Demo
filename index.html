@@ -12,6 +12,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="leanplum.min.js">
   </script>
+  <script type="text/javascript" src="index.js"></script>
 <style type="text/css">
     .navbar {
       font-family: Raleway, sans-serif;
@@ -125,7 +126,9 @@
 
 	// We've inserted your Test API keys here for you :)
 	if (isDevelopmentMode) {
-	 Leanplum.setAppIdForDevelopmentMode("app_QRz301YIiB2FVHZueKJDyJsGWluEBWAlxp8JDJMXzj0", "dev_PixIb6DTB58IAhNmFdtS2gwByvk58cRORVI6YvgB2Os");
+	 Leanplum.setAppIdForDevelopmentMode(
+	 	"app_QRz301YIiB2FVHZueKJDyJsGWluEBWAlxp8JDJMXzj0", 
+	 	"dev_PixIb6DTB58IAhNmFdtS2gwByvk58cRORVI6YvgB2Os");
 	} else {
 	 Leanplum.setAppIdForProductionMode("YOUR_APP_ID", "YOUR_PRODUCTION_KEY");
 	}
@@ -133,7 +136,7 @@
 	//Leanplum.setVariables(variables);
 	Leanplum.start(function(success) {
 	 console.log('Success: ' + success);
-	 console.log('Variables', Leanplum.getVariables());
+	 //console.log('Variables', Leanplum.getVariables());
 	});</script>
 <div class="container1" style="text-align: center">
   <h1>Hello World</h1>
@@ -141,7 +144,9 @@
   <h3>THIS IS TEST SITE TO DEMO LEANPLUM SDK</h3>
 </div>
 </div>
-<div>
+<div class="container">
+	<button onclick='Leanplum.track("Web-Button-Click")'>Leanplum Event JavaScript</button>
 </div>
+<div class="container" style="padding-top: 40px"><button onclick="main()">Push Permission Button</button></div>
 </body>
 </html>
